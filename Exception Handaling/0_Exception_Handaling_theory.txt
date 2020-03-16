@@ -1,0 +1,192 @@
+                           
+* Dictionary meaning of the exception is abnormal termination.
+* An exception is a problem occurred during execution time of the program.
+3) An unwanted unexpected event that disturbs normal flow of execution called exception.
+* Exception is nothing but a object.
+* Exception is a class present in java.lang package.
+* All the exceptions are nothing but objects called classes.
+* Whenever user is entered invalid data then Exception is occur.
+* A file that needs to be opened can’t found then Exception is occurred.
+* Exception is occurred when the network has disconnected at the middle of the communication.
+ 
+    Types of Exceptions:-
+    As per sun micro systems standards The Exceptions are divided into three types
+         * Checked Exception
+         * Unchecked Exception
+         * Error
+
+
+In java Exception handling we are having 5 key words:-
+1 try
+2 catch
+3 finally
+4 throw
+5 throws
+
+Exception handling by using Try –catch block:-
+1) In java language we are handling the exceptions By using try and catch blocks. try block contains
+risky code of the program and catch block contains handling code of the program.
+2) Catch block code is a alternative code for Exceptional code. If the exception is raised the
+alternative code is executed fine then rest of the code is executed normally.
+Syntax:-
+try
+{
+Code to run [break;]
+}
+Catch(ExceptionName reference_variable)
+{
+Code to run if an exception is raised
+}
+
+
+
+*** if there is no exception in try block the catch blocks won’t be executed
+
+** independent try blocks are not allowed in java language.(compilation error) if there is try there will be catch
+
+Inside the try block once we are getting exception the JVM search for the corresponding catch
+block .If the catch block is matched then it will executed that catch block the program is terminated
+normally the control never goes try block once again.
+Once the control is out of the try block the control never entered into try block once again .
+
+
+
+Finally block:-
+1) finally is a block it is always executed irrespective of try and catch.
+2) Finally contains clean-up code.
+3) It is not possible to write finally alone . we must take try-catch-finally otherwise take the tryfinally these two are the possibilities. If we are taking any other we are getting compilation error
+saying finally without try block .
+Syntax:-
+try
+{
+      risky code;
+}
+catch (Exception obj)
+{
+      handling code;
+}
+finally
+{
+      free code;
+}
+The only one situation the finally block is wont be executed:-
+In your program whenever we are using System.exit(0) the JVM is shut downing hence the rest
+of the code won’t be executed .
+
+
+
+Throw:-
+1) The main purpose of the throw keyword is to creation of Exception object explicitly either for
+predefined or user defined .
+2) Throw keyword works like a try block. The difference is try block is automatically find the
+situation and creates a Exception object implicitly. Whereas throw keyword creates a Exception
+object explicitly.
+
+
+Throws :-
+1) Throw keyword is used to create exception object explicitly. But the main purpose of the throws
+keyword is bypassing the generated exception from present method to caller method.
+2) Throw keyword is used in the method body. But throws keyword we have to use in the method
+declaration.
+3) It is possible to throws any number of exceptions at a time based on the programmer
+requirement.
+In the java language we are handling the Exception in two ways
+1) By using try-catch blocks
+2) By using throws keyword
+
+
+
+
+Exceptions:-
+There are two types of exceptions present in the java language
+1) Predefined Exceptions.
+2) User defined Exceptions.
+Predefined Exception:-
+Predefined classes comes along with the software based on your requirement we have to create
+a objects.
+Ex:- ArithmeticException,IOException,NullPointerException…………..etc
+User defined Exceptions:-
+Based on the user requirement user can creates a Exception is called user defined Exception.
+Ex:InvaliedAgeException,BombBlostException………..etc
+To create user defined Exceptions:-
+1) To create user defined exception we have to take an user defined class that is a sub class to the
+RuntimeException(for creation of unchecked Exceptions) .
+2) To create user defined exception we have to take user defined class that is subclass to the
+Exception(for creation of checked Exceptions)
+3) Each and every Exception contains two constructors
+a) default constructor
+b) parameterized constructor
+4) the naming conventions we have to fallow
+a. every exception suffix must be the word Exception.
+b. Exception in a class so we have to fallow class coding conventions.
+for the creation of UncheckedException:-
+Default constructor approach
+Class InvaliedAgeException extends RuntimeException
+{ }
+Parameterized constructor approach
+Class XXXException extends RuntimeException
+{
+XXXException(String str)
+{
+Super(str);
+}
+}
+Note:-
+for these type of user defined Exceptions no need of handling the Exception . Hence try-catch
+[or] throws keyword is not required.
+For the creation of checkedException:-
+Default constructor approach
+Class InvaliedAgeException extends Exception
+{ }
+Parameterized constructor approach
+Class XXXException extends Exception
+{
+XXXException(String str)
+{
+Super(str);
+}
+}
+Note:-
+For these type of user defined Exceptions we have to handle the Exception otherwise we are getting
+compilation error . Hence try-catch [or] throws keyword is not required for the handling of Exceptions.
+
+Ex:-preparation of custom checked exceptions:-
+//userdefined Exception class preparation
+public class InvaliedAgeException extends Exception
+{
+InvaliedAgeException(String str)
+{
+super(str);
+}
+}
+//program that uses user defined Exception class
+import java.util.*;
+class Test
+{
+static void validate(int age) throws InvaliedAgeException
+{
+if (age<18)
+{
+throw new InvaliedAgeException("not elgible for vote");
+}
+else
+{
+System.out.println("welcome to the voteing");
+}
+}
+public static void main(String[] args) throws InvaliedAgeException
+{
+Scanner s=new Scanner(System.in);
+System.out.println("please enter age");
+int age=s.nextInt();
+validate(age);
+}
+}
+Ex:-preparation of custom unchecked exceptions:-
+public class InvaliedAgeException extends RuntimeException
+{
+InvaliedAgeException(String str)
+{
+super(str);
+}
+}

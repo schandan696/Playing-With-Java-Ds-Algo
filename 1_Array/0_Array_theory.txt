@@ -1,0 +1,45 @@
+/*            Arrays in Java
+
+Array declaration:
+To use an array in a program , we must declare a variable to reference the array and specify the type of array the variable can reference. 
+Here is the syntax for declaring an array variable:
+
+Syntax:- 
+
+                   dataType[] arrayRefVar = new dataType[arraySize];
+                           Or
+                   dataType arrayRefVar[] = new dataType[arraySize]; 
+
+Initialization:-
+
+                   int[] arrayRefVar = {value, value, value, .., value};
+
+                                    Or
+
+                   int[] arrayRefVar = new int[2];
+                   arrayRefVar[0] = value;
+                   arrayRefVar[1] = value;
+                   
+**The size of an array cannot be changed after the array is created. Size can obtained using arrayRefVar.length. For example, myList.length
+is 10.When an array is created, its elements are assigned the default value of 0 for the numeric primitive data types, '\u0000' for char 
+types,, and false for boolean types.
+
+Program to get minimum number in an array using a method.
+
+ In Java, multidimensional arrays can be initialized in the following ways:
+
+int[][] A = new int[3][4];
+                OR 
+int[][]  A  =  {  {  1,  0, 12, -1 },
+                  {  7, -3,  2,  5 },
+                  { -5, -2,  2, -9 }
+               };
+               
+Suppose there is a multidimensional array arr[ i ][ j ][ k ][ m ]. Then this array can hold i * j * k * m numbers of data elements.
+Ragged Array.
+int ar[][] = new int[4][];
+ar[o] = new int[3];
+ar[1] = new int[7];
+ar[2] = new int[9];
+ar[3] = new int[2];
+*/
